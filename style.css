@@ -16,8 +16,6 @@ body {
   overflow-x: hidden;
   height: min-content;
 }
-.colors {
-}
 .colorStyleAbout {
   --color1: #fff1e6;
   /* 6  title break nav bottom border*/
@@ -137,7 +135,7 @@ header {
   }
   .headerLogo {
     position: absolute;
-    left: 50%;
+    right: 10%;
     /* grid-area: 1 / 2 / 1 / 3; */
     object-fit: contain;
     height: 100%;
@@ -554,8 +552,6 @@ nav {
 }
 
 @media (width <= 650px) {
-  header {
-  }
   .segment {
     article {
       font-size: var(--fontSmal);
@@ -613,7 +609,7 @@ nav {
         position: relative;
         /* grid-auto-rows: auto; */
         aspect-ratio: 1/1;
-        background-image: url("../media/slub/couple-443600_1280.jpg");
+        background-image: url("./media/slub/couple-443600_1280.jpg");
         background-size: cover, auto;
         /* &:hover {
           a {
@@ -685,8 +681,6 @@ nav {
           .showSectionNav {
             font-size: var(--fontRegular);
           }
-          .navLlink {
-          }
         }
       }
     }
@@ -710,8 +704,6 @@ nav {
         overflow: visible;
         margin-left: 2ch;
         /* max-width: 50%; */
-        ul {
-        }
       }
       .navList,
       .contactList {
