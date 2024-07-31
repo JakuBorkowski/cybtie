@@ -540,7 +540,17 @@ nav {
     }
   }
 }
-
+@media (height <= 400px) {
+  #root {
+    padding-top: 3rem;
+  }
+  header {
+    --headerHeight: 3rem;
+    .showNav {
+      font-size: var(--fontSmal);
+    }
+  }
+}
 @media (width <= 650px) {
   .segment {
     article {
