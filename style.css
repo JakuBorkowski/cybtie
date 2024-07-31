@@ -544,7 +544,8 @@ nav {
   #root {
     padding-top: 3rem;
   }
-  header {
+  header,
+  header:has(nav.active) {
     --headerHeight: 3rem;
     .showNav {
       font-size: var(--fontSmal);
