@@ -699,7 +699,7 @@ nav {
     }
   }
 }
-@media (width >= 1400px) {
+@media (width >= 1400px) and (hover: hover) and (pointer: fine) {
   header {
     height: var(--headerHeight);
     display: flex;
