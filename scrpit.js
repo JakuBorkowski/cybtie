@@ -9,30 +9,29 @@ const copyTextButton = document.querySelectorAll("copyText");
 
 const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
 
-showNaw.addEventListener("click", (e) => {
-  console.log(e.target);
+showNaw.addEventListener("click", () => {
   navList.classList.toggle("active");
   showNaw.classList.toggle("active");
 });
 navSection.forEach((section) => {
-  section.children[0].addEventListener("click", (e) => {
+  section.children[0].addEventListener("click", () => {
     const currentActive = document.querySelector(".activeSection");
     section.classList.toggle("activeSection");
     currentActive && currentActive.classList.remove("activeSection");
   });
 });
 
-navBtn.forEach((element) => {
-  element.addEventListener("click", () => {
-    const matchTitle = [...titleName].filter(
-      (title) =>
-        title.children[0].innerText.toLowerCase() ==
-        element.innerText.toLowerCase()
-    );
-    matchTitle[0].scrollIntoView({ behavior: "instant", block: "start" });
-    navList.classList.remove("active");
-  });
-});
+// navBtn.forEach((element) => {
+//   element.addEventListener("click", () => {
+//     const matchTitle = [...titleName].filter(
+//       (title) =>
+//         title.children[0].innerText.toLowerCase() ==
+//         element.innerText.toLowerCase()
+//     );
+//     matchTitle[0].scrollIntoView({ behavior: "instant", block: "start" });
+//     navList.classList.remove("active");
+//   });
+// });
 
 const galerySlider = document.querySelectorAll(".galery");
 const galerySliderSwapHandle = (value, pickIMG, visibleIMG) => {
@@ -79,45 +78,45 @@ galerySlider.forEach((galery) => {
   });
 });
 
-document.addEventListener("scroll", () => {
-  header.getBoundingClientRect();
-  if (window.pageYOffset > 5 * rem) {
-    header.classList.add("shrink");
-  } else {
-    header.classList.remove("shrink");
-  }
-  getClosestSegmentAbove(window.pageYOffset);
-});
+// document.addEventListener("scroll", () => {
+//   header.getBoundingClientRect();
+//   if (window.pageYOffset > 5 * rem) {
+//     header.classList.add("shrink");
+//   } else {
+//     header.classList.remove("shrink");
+//   }
+//   getClosestSegmentAbove(window.pageYOffset);
+// });
 
-function getClosestSegmentAbove(offset) {
-  let closestSegment = null;
-  let closestDistance = Infinity;
+// function getClosestSegmentAbove(offset) {
+//   let closestSegment = null;
+//   let closestDistance = Infinity;
 
-  segments.forEach((segment) => {
-    const segmentTop = segment.getBoundingClientRect().top + offset - 10;
+//   segments.forEach((segment) => {
+//     const segmentTop = segment.getBoundingClientRect().top + offset - 10;
 
-    if (segmentTop <= offset) {
-      const distance = offset - segmentTop;
+//     if (segmentTop <= offset) {
+//       const distance = offset - segmentTop;
 
-      if (distance < closestDistance) {
-        closestDistance = distance;
-        closestSegment = segment;
-      }
-    }
-  });
-  if (closestSegment) {
-    const segmentAboveStyle = [...closestSegment.classList].filter((element) =>
-      element.match(/(color)/)
-    );
-    const currentHeaderStyle = [...header.classList].filter((element) =>
-      element.match(/(color)/)
-    );
-    if (segmentAboveStyle[0] !== currentHeaderStyle[0]) {
-      header.classList.remove(currentHeaderStyle);
-      header.classList.add(segmentAboveStyle);
-    }
-  }
-}
+//       if (distance < closestDistance) {
+//         closestDistance = distance;
+//         closestSegment = segment;
+//       }
+//     }
+//   });
+//   if (closestSegment) {
+//     const segmentAboveStyle = [...closestSegment.classList].filter((element) =>
+//       element.match(/(color)/)
+//     );
+//     const currentHeaderStyle = [...header.classList].filter((element) =>
+//       element.match(/(color)/)
+//     );
+//     if (segmentAboveStyle[0] !== currentHeaderStyle[0]) {
+//       header.classList.remove(currentHeaderStyle);
+//       header.classList.add(segmentAboveStyle);
+//     }
+//   }
+// }
 // document.addEventListener("click", (e) => {
 //   navList.classList.contains("active") &&
 //     e.target.tagName == "HEADER" &&

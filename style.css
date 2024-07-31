@@ -8,6 +8,8 @@
   border: 0;
   text-decoration: none;
   color: var(--fontRegular);
+  scrollbar-color: #dfc06f #fffaf0;
+  scrollbar-width: thin;
 }
 button {
   background: none;
@@ -117,7 +119,7 @@ header {
   height: var(--headerHeight);
   display: flex;
   /* grid-template: var(--headerHeight) / 1fr 2fr; */
-  background-color: var(--colorBackgroundMainOpacity50);
+  background-color: var(--colorBackgroundMain);
   border-bottom: 1rem solid var(--colorBackgroundSecondary);
   .showNav {
     grid-area: 1/1/2/3;
@@ -144,7 +146,7 @@ header {
   /* color: var(--color6);
   color: var(--colorFontRegular); */
   * {
-    transition: color 2s, background-color 2s;
+    /* transition: color 2s, background-color 2s; */
   }
   &.shrink {
     --headerHeight: 3rem;
@@ -193,7 +195,7 @@ nav {
   left: 0;
   display: grid;
   grid-template: repeat(3, 0) / 1fr repeat(2, 2fr) 1fr;
-  transition: grid-template 0.1s, padding-top 0.1s, padding-bottom 0.1s;
+  /* transition: grid-template 0.1s, padding-top 0.1s, padding-bottom 0.1s; */
   background-color: var(--colorBackgroundMain);
   max-height: calc(100vh - 5rem);
   width: 100vw;
@@ -221,11 +223,13 @@ nav {
       height: calc(var(--headerHeight) - 1rem);
       color: var(--colorClicableElement);
       background-color: var(--colorBackgroundMain);
+      div {
+        position: absolute;
+      }
     }
   }
   .activeSection {
     grid-template: calc(var(--headerHeight) - 1rem) 3fr / 1fr;
-
     .showSectionNav {
       position: relative;
       &::after {
@@ -240,7 +244,9 @@ nav {
     }
     ul {
       padding: 1rem 0.5ch;
-      overflow: auto;
+      overflow-y: auto;
+      background-color: var(--colorBackgroundMain);
+
       li {
         box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 38px,
           rgba(0, 0, 0, 0.22) 0px 5px 12px;
@@ -248,7 +254,6 @@ nav {
     }
   }
   .navList {
-    width: 100%;
     background-color: var(--colorBackgroundMain);
     display: grid;
     grid-auto-rows: 3rem;
@@ -416,31 +421,6 @@ nav {
       background-color: var(--colorBackgroundSecondary);
     }
   }
-  .articleOrnament {
-    grid-area: 2/4/3/5;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    li {
-      aspect-ratio: 1/1;
-      display: flex;
-      height: min-content;
-      justify-content: center;
-      align-items: center;
-      img {
-        object-fit: contain;
-        max-height: 10rem;
-        aspect-ratio: 1/1;
-        border-radius: 50%;
-        border: solid var(--colorBackgroundSecondary) 10px;
-        box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
-          rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
-      }
-    }
-  }
 
   .segmentbreak {
     border-image: linear-gradient(
@@ -484,6 +464,10 @@ nav {
         object-fit: cover;
         max-height: calc(70vh - 5rem);
         max-width: 100%;
+        &:hover {
+          scale: 1.1;
+          box-shadow: 0 0 5px 5px #00000055;
+        }
       }
     }
     div.zoom {
@@ -509,6 +493,9 @@ nav {
         object-fit: auto;
         max-height: 100vh;
         max-width: 99vw;
+        &:hover {
+          scale: 1;
+        }
       }
     }
 
@@ -525,6 +512,9 @@ nav {
         img {
           object-fit: cover;
           height: 20vh;
+          &:hover {
+            scale: 1.1;
+          }
         }
       }
     }
@@ -555,13 +545,6 @@ nav {
   .segment {
     article {
       font-size: var(--fontSmal);
-    }
-    .articleOrnament {
-      grid-area: 3/2/4/-2;
-      flex-direction: row;
-      li > img {
-        max-height: 5rem;
-      }
     }
   }
 }
@@ -665,6 +648,7 @@ nav {
     display: flex;
     justify-content: space-between;
     padding: 0 5ch 0 0;
+    box-shadow: 0 0 20px 20px #00000055;
     img {
       object-fit: contain;
       max-height: var(--headerHeight);
@@ -708,8 +692,6 @@ nav {
       .navList,
       .contactList {
         width: 0;
-        background: transparent;
-
         height: 0;
       }
       .activeSection {
@@ -720,15 +702,16 @@ nav {
           width: 100vw;
           height: 100vh;
           content: "";
-          background-color: var(--colorBackgroundMainOpacity100);
         }
         ul {
           position: absolute;
           left: 27vw;
           top: var(--headerHeight);
-          width: 50vw;
+          width: max-content;
+          border-radius: 0 0 20px 20px;
           height: auto;
           grid-template-columns: repeat(3, minmax(min-content, calc(45vw / 3)));
+          box-shadow: 0 50px 50px 50px rgba(0, 0, 0, 0.447);
         }
         .contactList {
           /* width: auto;
