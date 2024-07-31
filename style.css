@@ -613,7 +613,7 @@ nav {
         position: relative;
         /* grid-auto-rows: auto; */
         aspect-ratio: 1/1;
-        background-image: url("/media/slub/couple-443600_1280.jpg");
+        background-image: url("./media/slub/couple-443600_1280.jpg");
         background-size: cover, auto;
         /* &:hover {
           a {
