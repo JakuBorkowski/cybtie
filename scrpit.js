@@ -5,9 +5,24 @@ const navSection = document.querySelectorAll(".navSection");
 const navBtn = document.querySelectorAll(".navBtn");
 const titleName = document.querySelectorAll(".title");
 const segments = document.querySelectorAll(".segment");
-const copyTextButton = document.querySelectorAll("copyText");
+const copyTextButton = document.querySelectorAll(".copyText");
 
 const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
+
+copyTextButton.forEach((button) => {
+  button.addEventListener("click", () => {
+    inpt = document.createElement("input");
+    inpt.value = button.innerText;
+    document.body.appendChild(inpt);
+    inpt.select();
+    document.execCommand("copy");
+    document.body.removeChild(inpt);
+    button.classList.add("copyInfo");
+    setTimeout(() => {
+      button.classList.remove("copyInfo");
+    }, 1000);
+  });
+});
 
 showNaw.addEventListener("click", () => {
   navList.classList.toggle("active");
