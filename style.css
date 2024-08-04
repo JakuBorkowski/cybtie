@@ -13,6 +13,7 @@
 }
 button {
   background: none;
+  cursor: pointer;
 }
 body {
   height: min-content;
@@ -81,7 +82,7 @@ header {
       max-height: 100%;
     }
   }
-  /* &.shrink {
+  &.shrink {
     --headerHeight: 3rem;
     .showNav {
       font-size: var(--fontSmal);
@@ -101,7 +102,7 @@ header {
         z-index: -1;
       }
     }
-  } */
+  }
 }
 
 nav {
@@ -195,6 +196,7 @@ nav {
     grid-auto-rows: minmax(20vh, 1fr);
     grid-template-columns: repeat(auto-fit, minmax(20ch, 1fr));
     li {
+      padding-top: 5px;
       background-color: var(--colorBackgroundSecondary);
       border-radius: 20px;
       text-align: center;
@@ -203,6 +205,8 @@ nav {
       justify-content: center;
       a,
       button {
+        width: 100%;
+        height: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -368,6 +372,8 @@ nav {
     row-gap: 5vh;
     position: relative;
     div {
+      cursor: pointer;
+
       height: calc(70vh - 5rem);
       grid-area: 1/1/2/2;
       display: flex;
@@ -423,6 +429,8 @@ nav {
       li {
         height: 22vh;
         img {
+          cursor: pointer;
+
           object-fit: cover;
           height: 20vh;
           &:hover {

@@ -102,15 +102,14 @@ galerySlider.forEach((galery) => {
   });
 });
 
-// document.addEventListener("scroll", () => {
-//   header.getBoundingClientRect();
-//   if (window.pageYOffset > 5 * rem) {
-//     header.classList.add("shrink");
-//   } else {
-//     header.classList.remove("shrink");
-//   }
-//   getClosestSegmentAbove(window.pageYOffset);
-// });
+document.addEventListener("scroll", () => {
+  header.getBoundingClientRect();
+  if (window.pageYOffset > 5 * rem) {
+    header.classList.add("shrink");
+  } else {
+    header.classList.remove("shrink");
+  }
+});
 
 // function getClosestSegmentAbove(offset) {
 //   let closestSegment = null;
