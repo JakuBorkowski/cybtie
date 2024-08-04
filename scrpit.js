@@ -80,6 +80,15 @@ galerySlider.forEach((galery) => {
       }
     });
   });
+  window.addEventListener("keydown", (e) => {
+    console.log(e.keyCode);
+    if (e.keyCode == 37) {
+      console.log("left");
+      galerySliderSwapHandle(-1, pickIMG, visibleIMG);
+    } else if (e.keyCode == 39) {
+      galerySliderSwapHandle(1, pickIMG, visibleIMG);
+    }
+  });
   swapLeftButton.addEventListener("click", () =>
     galerySliderSwapHandle(-1, pickIMG, visibleIMG)
   );

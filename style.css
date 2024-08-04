@@ -15,7 +15,6 @@ button {
   background: none;
 }
 body {
-  overflow-x: hidden;
   height: min-content;
 }
 
@@ -45,7 +44,7 @@ header {
   z-index: 10;
   top: 0;
   position: fixed;
-  width: 100vw;
+  width: 100%;
   height: var(--headerHeight);
   display: flex;
   background-color: var(--colorBackgroundMain);
@@ -66,12 +65,12 @@ header {
       position: absolute;
       top: 100%;
       content: "";
-      width: 100vw;
+      width: 100%;
       height: 100vh;
     }
   }
   .headerLogo {
-    display: block;
+    display: flex;
     position: absolute;
     right: 10%;
     height: 100%;
@@ -107,7 +106,7 @@ header {
 
 nav {
   /* grid-area: 2/1/3/2; */
-  max-width: 200ch;
+  /* max-width: 200ch; */
   position: absolute;
   top: var(--headerHeight);
   left: 0;
@@ -115,7 +114,7 @@ nav {
   grid-template: repeat(3, 0) / 1fr repeat(2, 2fr) 1fr;
   background-color: var(--colorBackgroundMain);
   max-height: calc(100vh - 5rem);
-  width: 100vw;
+  width: 100%;
   color: var(--colorClicableElement);
 
   * {
@@ -265,7 +264,7 @@ nav {
     left: 0;
     height: 150vh;
     overflow: hidden;
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -332,14 +331,14 @@ nav {
   }
 
   .segmentbreak {
-    border-image: linear-gradient(
+    /* border-image: linear-gradient(
         45deg,
         var(--colorClicableElement),
         var(--colorBackgroundSecondary)
       )
-      1/20px/20px;
+      1/20px/20px; */
     grid-area: 4/1/5/-1;
-    background: linear-gradient(
+    background-image: linear-gradient(
       125deg,
       var(--colorBackgroundMain),
       var(--colorBackgroundSecondary)
@@ -358,8 +357,13 @@ nav {
     grid-area: 5 /1/-1/-1;
     display: grid;
     grid-template: calc(70vh - 5rem) 30dvh/99vw;
-    box-shadow: inset rgba(0, 0, 0, 0.22) 0 0 20px 10px;
-    background-color: var(--colorFontRegular);
+    background-image: linear-gradient(
+      var(--colorBackgroundMain) 0%,
+      #0000 45%,
+      var(--colorBackgroundMain) 80%
+    );
+    /* box-shadow: inset 0 0 40px 20px var(--colorBackgroundSecondaryOpacity); */
+    /* background-color: var(--colorBackgroundMainOpacity50); */
     padding-top: 1rem;
     row-gap: 5vh;
     position: relative;
@@ -388,12 +392,12 @@ nav {
       height: 100vh;
       background-color: var(--colorBackgroundMainOpacity100);
       &::after {
-        background-color: var(--colorBackgroundSecondary);
-        border-radius: 50%;
+        background-color: var(--colorBackgroundMain);
         content: url("./media/close\ \(1\).png");
         position: absolute;
 
-        height: 1rem;
+        height: 17px;
+        width: 16px;
         aspect-ratio: 1/1;
         top: 5px;
         left: 90%;
@@ -449,6 +453,23 @@ nav {
     }
   }
 }
+footer {
+  width: 100%;
+  height: var(--fontBig);
+  font-size: var(--fontSmal);
+
+  color: var(--colorFontRegular);
+  background-color: var(--colorFontRegular);
+  text-shadow: 1px 1px 2px var(--colorBackgroundMain);
+  ul {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
 @media (width <= 500px) {
   header {
     .activeSection {
@@ -458,6 +479,7 @@ nav {
 
         li {
           aspect-ratio: auto;
+          line-height: 2.5rem;
         }
       }
     }
@@ -468,23 +490,7 @@ nav {
     }
   }
 }
-@media (width >= 500px) {
-  header {
-    nav {
-      .navList {
-        .navigationElement {
-          .navLlink {
-            background-color: transparent;
-            span {
-              background-color: var(--colorFontRegular);
-              color: var(--colorFontHeader);
-            }
-          }
-        }
-      }
-    }
-  }
-}
+
 @media (width >= 500px) {
   header {
     .showSectionNav {
@@ -500,21 +506,47 @@ nav {
         }
       }
     }
-    .navList,
-    .contactList {
-      grid-auto-rows: auto;
-
-      .navigationElement {
-        align-items: start;
-        position: relative;
-        aspect-ratio: 1/1;
-        background-image: url("./media/slub/couple-443600_1280.jpg");
-        background-size: cover, auto;
+    nav {
+      .navList {
+        .navigationElement {
+          align-items: start;
+          position: relative;
+          aspect-ratio: 1/1;
+          background-size: cover, auto;
+          .navLlink {
+            background-color: transparent;
+            span {
+              background-color: var(--colorFontRegular);
+              color: var(--colorFontHeader);
+            }
+          }
+          &:nth-child(1) {
+            background-image: url("./media/Produkty/324497975_615217670412758_4412985866923301303_n.jpg");
+          }
+          &:nth-child(2) {
+            background-image: url("./media/slub/couple-443600_1280.jpg");
+          }
+          &:nth-child(3) {
+            background-image: url("./media/chrzciny/490978-352x500.jpg");
+          }
+          &:nth-child(4) {
+            background-image: url("./media/komunia/cross-4377477_1280.jpg");
+          }
+          &:nth-child(5) {
+            background-image: url("./media/urodziny/carnival-4092632_1280.jpg");
+          }
+          &:nth-child(6) {
+            background-image: url("./media/eventy/girl-4663792_1280.jpg");
+          }
+        }
+      }
+      .navList,
+      .contactList {
+        grid-auto-rows: auto;
       }
     }
   }
 }
-
 @media (width >= 650px) {
   header {
     .showSectionNav {
@@ -547,7 +579,6 @@ nav {
 @media (width >= 1400px) {
   header {
     height: var(--headerHeight);
-    display: flex;
     justify-content: space-between;
     padding: 0 5ch 0 0;
     box-shadow: 0 0 20px 20px #00000055;
@@ -588,7 +619,6 @@ nav {
       .navSection {
         overflow: visible;
         margin-left: 2ch;
-        /* max-width: 50%; */
       }
       .navList,
       .contactList {
@@ -600,7 +630,7 @@ nav {
           position: fixed;
           left: 0;
           top: var(--headerHeight);
-          width: 100vw;
+          width: 100%;
           height: 100vh;
           content: "";
         }
@@ -614,40 +644,7 @@ nav {
           grid-template-columns: repeat(3, minmax(min-content, calc(45vw / 3)));
           box-shadow: 0 20px 20px 20px rgba(0, 0, 0, 0.447);
         }
-        .contactList {
-          /* width: auto;
-          height: auto; */
-        }
-        .navList {
-          /* width: auto;
-          height: auto; */
-          /* background: transparent; */
-        }
       }
     }
   }
 }
-/* @media (height <= 400px) {
-  #root {
-    --headerHeight: 3rem;
-  }
-  header,
-  header:has(nav.active) {
-    --headerHeight: 3rem;
-    .showNav {
-      font-size: var(--fontSmal);
-    }
-    .showSectionNav {
-      font-size: var(--fontSmal);
-    }
-    nav {
-      .activeSection {
-        ul {
-          li {
-            font-size: var(--fontSmal);
-          }
-        }
-      }
-    }
-  }
-} */
