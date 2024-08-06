@@ -6,6 +6,7 @@ const navBtn = document.querySelectorAll(".navBtn");
 const titleName = document.querySelectorAll(".title");
 const segments = document.querySelectorAll(".segment");
 const copyTextButton = document.querySelectorAll(".copyText");
+const showElementbtn = document.querySelectorAll(".show");
 
 const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
 
@@ -103,12 +104,25 @@ galerySlider.forEach((galery) => {
 });
 
 document.addEventListener("scroll", () => {
+  ``;
   header.getBoundingClientRect();
   if (window.pageYOffset > 5 * rem) {
     header.classList.add("shrink");
   } else {
     header.classList.remove("shrink");
   }
+});
+
+showElementbtn.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    navList.classList.add("active");
+    showNaw.classList.add("active");
+    if (btn.innerText === "Oferta") {
+      navList.children[0].classList.add("activeSection");
+    } else if (btn.innerText === "Kontakt") {
+      navList.children[1].classList.add("activeSection");
+    }
+  });
 });
 
 // function getClosestSegmentAbove(offset) {
