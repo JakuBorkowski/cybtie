@@ -470,8 +470,6 @@ nav {
       }
     }
     button {
-      backdrop-filter: blur(6px);
-
       position: absolute;
       top: calc(35% - 2.5ch);
       width: 3ch;
@@ -479,6 +477,7 @@ nav {
       font-weight: bold;
       color: var(--colorClicableElement);
       font-size: var(--fontMedium);
+      text-shadow: 1px 1px 2px var(--colorBackgroundMain);
     }
     .arrowRight {
       left: calc(100% - 4ch);
