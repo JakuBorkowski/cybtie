@@ -242,6 +242,7 @@ nav {
           object-fit: contain;
           max-width: 50%;
           max-height: 20vh;
+          border-radius: 50%;
         }
       }
     }
