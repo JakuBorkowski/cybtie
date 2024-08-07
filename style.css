@@ -596,9 +596,10 @@ footer {
         }
       }
       .contactList {
-        grid-template-columns: repeat(3, minmax(min-content, 1fr));
+        grid-template-columns: repeat(3, minmax(max-content, 1fr));
 
         li {
+          padding: 5px;
           aspect-ratio: auto;
         }
       }
