@@ -28,7 +28,7 @@ body {
 
 #root {
   --headerHeight: 6rem;
-
+  max-width: 100vw;
   position: relative;
   padding-top: var(--headerHeight);
   --colorFontRegular: #282828;
@@ -114,7 +114,7 @@ header {
         position: absolute;
         top: 0;
         left: 0;
-        width: 100vw;
+        width: 95vw;
         height: 100vh;
         z-index: -1;
       }
@@ -123,6 +123,8 @@ header {
 }
 
 nav {
+  font-size: var(--fontRegular);
+
   position: absolute;
   top: var(--headerHeight);
   left: 0;
@@ -149,6 +151,8 @@ nav {
     grid-template-rows: calc(var(--headerHeight) - 1rem) 0fr;
     grid-template-columns: 1fr;
     .showSectionNav {
+      font-size: var(--fontRegular);
+
       height: calc(var(--headerHeight) - 1rem);
       color: var(--colorClicableElement);
       background-color: var(--colorBackgroundMain);
@@ -236,7 +240,6 @@ nav {
         p {
           width: 100%;
           height: 20%;
-          font-size: var(--fontRegular);
         }
         img {
           object-fit: contain;
@@ -322,7 +325,7 @@ nav {
 
       box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
         rgba(0, 0, 0, 0.22) 0px 15px 12px;
-      width: 99vw;
+      width: 100%;
       font-size: calc(var(--fontBig) * 1.2);
       color: var(--colorFontHeader);
     }
@@ -382,7 +385,7 @@ nav {
   .galery {
     grid-area: 5 /1/-1/-1;
     display: grid;
-    grid-template: calc(70vh - 5rem) 30dvh/99vw;
+    grid-template: calc(70vh - 5rem) 30dvh/100%;
     background-image: linear-gradient(
       var(--colorBackgroundMain) 0%,
       #0000 45%,
@@ -414,7 +417,7 @@ nav {
       left: 0;
       z-index: 30;
       position: fixed;
-      width: 100vw;
+      width: 100%;
       height: 100vh;
       &::after {
         content: "\2297";
@@ -428,7 +431,7 @@ nav {
       img {
         object-fit: auto;
         max-height: 100vh;
-        max-width: 99vw;
+        max-width: 100%;
         &:hover {
           scale: 1;
         }
@@ -439,7 +442,6 @@ nav {
       width: 100%;
       display: flex;
       overflow-x: auto;
-      height: 22vh;
       justify-content: space-evenly;
       align-items: center;
       li {
@@ -675,7 +677,7 @@ footer {
           position: fixed;
           left: 0;
           top: var(--headerHeight);
-          width: 100vw;
+          width: 100%;
           height: 100vh;
           content: "";
         }
