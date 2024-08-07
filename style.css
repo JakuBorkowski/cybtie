@@ -48,7 +48,6 @@ body {
 }
 /* header */
 header {
-  --headerHeight: 6rem;
   z-index: 10;
   top: 0;
   position: fixed;
@@ -64,6 +63,7 @@ header {
     display: flex;
     justify-content: start;
     align-items: center;
+    font-size: var(--fontBig);
     /* &:hover {
       &::before {
         scale: 1.1;
@@ -75,7 +75,6 @@ header {
       color: var(--colorClicableElement);
       animation: noActiveIconNav 0.5s;
     }
-    font-size: var(--fontBig);
     &.active::after {
       position: absolute;
       top: 100%;
@@ -124,13 +123,10 @@ header {
 }
 
 nav {
-  /* grid-area: 2/1/3/2; */
-  /* max-width: 200ch; */
   position: absolute;
   top: var(--headerHeight);
   left: 0;
   display: grid;
-  /* grid-template: repeat(3, 0) / 1fr repeat(2, 2fr) 1fr; */
   grid-template-rows: repeat(2, 0);
   grid-template-columns: 1fr;
   background-color: var(--colorBackgroundMain);
@@ -148,11 +144,8 @@ nav {
   }
   .navSection {
     transition: grid-template-rows 0.1s;
-
     color: var(--colorClicableElement);
-    /* max-width: 200ch; */
     display: grid;
-    /* grid-template: calc(var(--headerHeight) - 1rem) 0fr / 1fr; */
     grid-template-rows: calc(var(--headerHeight) - 1rem) 0fr;
     grid-template-columns: 1fr;
     .showSectionNav {
@@ -162,9 +155,7 @@ nav {
     }
   }
   .activeSection {
-    /* grid-template: calc(var(--headerHeight) - 1rem) 3fr / 1fr; */
     grid-template-rows: calc(var(--headerHeight) - 1rem) 3fr;
-    grid-template-columns: 1fr;
     .showSectionNav {
       position: relative;
       &::after {
@@ -371,12 +362,6 @@ nav {
   }
 
   .segmentbreak {
-    /* border-image: linear-gradient(
-        45deg,
-        var(--colorClicableElement),
-        var(--colorBackgroundSecondary)
-      )
-      1/20px/20px; */
     grid-area: 4/1/5/-1;
     background-image: linear-gradient(
       125deg,
@@ -402,14 +387,11 @@ nav {
       #0000 45%,
       var(--colorBackgroundMain) 80%
     );
-    /* box-shadow: inset 0 0 40px 20px var(--colorBackgroundSecondaryOpacity); */
-    /* background-color: var(--colorBackgroundMainOpacity50); */
     padding-top: 1rem;
     row-gap: 5vh;
     position: relative;
     div {
       cursor: pointer;
-
       height: calc(70vh - 5rem);
       grid-area: 1/1/2/2;
       display: flex;
@@ -451,7 +433,6 @@ nav {
         }
       }
     }
-
     ul {
       grid-area: 2/1/3/3;
       width: 100%;
@@ -464,7 +445,6 @@ nav {
         height: 22vh;
         img {
           cursor: pointer;
-
           object-fit: cover;
           height: 20vh;
           &:hover {
@@ -491,7 +471,6 @@ nav {
     }
     button.zoom {
       top: calc(50% - 1.5ch);
-
       position: fixed;
       z-index: 31;
     }
@@ -502,7 +481,6 @@ footer {
   border-top: solid 5px #131313;
   height: var(--fontBig);
   font-size: var(--fontSmal);
-
   color: var(--colorFontRegular);
   background-color: var(--colorFontRegular);
   text-shadow: 1px 1px 2px var(--colorBackgroundMain);
@@ -615,9 +593,13 @@ footer {
         grid-template-columns: repeat(3, minmax(min-content, 1fr));
         li {
           aspect-ratio: 1/1;
-          /* * {
-            font-size: var(--fontMedium);
-          } */
+        }
+      }
+      .contactList {
+        grid-template-columns: repeat(3, minmax(min-content, 1fr));
+
+        li {
+          aspect-ratio: auto;
         }
       }
     }
@@ -629,7 +611,6 @@ footer {
   }
   nav.active {
     border-block: 1rem solid var(--colorBackgroundSecondary);
-    /* grid-template: repeat(3, min-content) / 1fr; */
     grid-template-rows: repeat(2, max-content);
     grid-template-columns: 1fr;
     overflow: auto;
@@ -664,7 +645,6 @@ footer {
         }
       }
     }
-
     .showNav {
       display: none;
     }
