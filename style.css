@@ -283,7 +283,10 @@ nav {
   display: grid;
   grid-template:
     calc(100dvh - var(--headerHeight))
-    minmax(90dvh, auto) repeat(2, auto) 100dvh / 1fr 30ch repeat(2, 2fr)
+    minmax(90dvh, auto) repeat(3, minmax(30vh, auto)) 100dvh / 1fr 30ch repeat(
+      2,
+      2fr
+    )
     1fr;
   .backgroundIMG {
     margin: 0;
@@ -383,7 +386,8 @@ nav {
     font-size: var(--fontRegular);
   }
   .galery {
-    grid-area: 5 /1/-1/-1;
+    border-top: 2rem solid var(--colorBackgroundSecondaryOpacity);
+    grid-area: 6 /1/-1/-1;
     display: grid;
     grid-template: calc(70vh - 5rem) 30dvh/100%;
     background-image: linear-gradient(
