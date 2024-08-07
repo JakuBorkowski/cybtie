@@ -115,6 +115,9 @@ document.addEventListener("scroll", () => {
 
 showElementbtn.forEach((btn) => {
   btn.addEventListener("click", () => {
+    const currentActive = document.querySelector(".activeSection");
+    currentActive && currentActive.classList.remove("activeSection");
+
     navList.classList.add("active");
     showNaw.classList.add("active");
     if (btn.innerText === "Oferta") {
